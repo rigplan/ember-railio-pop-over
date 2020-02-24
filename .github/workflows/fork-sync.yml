@@ -1,0 +1,14 @@
+name: sync upstream
+on: 
+  schedule:
+  - cron: '*/30 * * * *'
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: TG908/fork-sync@v1.1
+        with:
+          github_token: ${{ secrets.FABRIQUARTZ_SYNC_KEY }}
+          owner: Fabriquartz
+          base: master
+          head: master
